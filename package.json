@@ -29,7 +29,8 @@
   },
   "files": [
     "bin",
-    "dist"
+    "dist",
+    "rules"
   ],
   "engines": {
     "node": ">=14.18.1"

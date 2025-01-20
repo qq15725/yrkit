@@ -17,6 +17,9 @@ importers:
       consola:
         specifier: ^3.4.0
         version: 3.4.0
+      resolve:
+        specifier: ^1.22.10
+        version: 1.22.10
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.14.0

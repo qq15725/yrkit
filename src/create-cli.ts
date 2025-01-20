@@ -8,14 +8,15 @@ import { cac } from 'cac'
 import consola from 'consola'
 import { bin, version } from '../package.json'
 
+const anyproxyPath = path.join(require.resolve('anyproxy'), '../bin/anyproxy')
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const root = path.join(path.resolve(__dirname), '..')
 const resolve = (...paths: string[]): string => path.join(root, ...paths)
 
-function runBinCommand(bin: string, args: string[] = []): Promise<void> {
+function runCommand(args: string[] = []): Promise<void> {
   return new Promise((resolve, reject) => {
-    const child = spawn(`./node_modules/.bin/${bin}`, args, {
+    const child = spawn(anyproxyPath, args, {
       stdio: 'inherit',
       shell: true,
     })
@@ -132,12 +133,12 @@ export function createCli(_options: Options): CAC {
 
   cli.command('start', '启动服务').action(async () => {
     await showInfo()
-    await runBinCommand('anyproxy', args)
+    await runCommand(args)
   })
 
   cli.command('xhs', '小红书工具').action(async () => {
     await showInfo()
-    await runBinCommand('anyproxy', [
+    await runCommand([
       ...args,
       `-r ${resolve('../rules/xhs.cjs')}`,
     ])

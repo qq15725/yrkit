@@ -10,7 +10,7 @@ import { bin, version } from '../package.json'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const root = path.resolve(__dirname)
+const root = path.join(path.resolve(__dirname), '..')
 const resolve = (...paths: string[]): string => path.join(root, ...paths)
 
 function runBinCommand(bin: string, args: string[] = []): Promise<void> {

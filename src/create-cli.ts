@@ -3,10 +3,13 @@ import type { Options } from './types'
 import { exec, spawn } from 'node:child_process'
 import os from 'node:os'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { cac } from 'cac'
 import consola from 'consola'
 import { bin, version } from '../package.json'
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const root = path.resolve(__dirname)
 const resolve = (...paths: string[]): string => path.join(root, ...paths)
 

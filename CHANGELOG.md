@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/qq15725/yrkit/compare/v0.0.5...v0.0.6) (2025-01-20)
+
+
+### Features
+
+* update ([192d723](https://github.com/qq15725/yrkit/commit/192d7239568775e30d9cbff41badfa56d82842ca))
+
+
+
 ## [0.0.5](https://github.com/qq15725/yrkit/compare/v0.0.4...v0.0.5) (2025-01-20)
 
 

@@ -9,7 +9,7 @@ import consola from 'consola'
 import resolvePkg from 'resolve'
 import { bin, version } from '../package.json'
 
-export function createCli(options: Options): CAC {
+export function createCli(_options: Options): CAC {
   const __filename = fileURLToPath(import.meta.url)
   const __dirname = path.dirname(__filename)
   const root = path.join(path.resolve(__dirname), '..')
@@ -18,7 +18,7 @@ export function createCli(options: Options): CAC {
   function runCommand(args: string[] = []): Promise<void> {
     return new Promise((resolve, reject) => {
       const anyproxyPath = path.join(
-        resolvePkg.sync('anyproxy', { basedir: options.cwd }),
+        resolvePkg.sync('anyproxy', { basedir: root }),
         '../bin/anyproxy',
       )
 

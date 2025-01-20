@@ -6,7 +6,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { cac } from 'cac'
 import consola from 'consola'
-import { sync as resolveSync } from 'resolve'
+import resolvePkg from 'resolve'
 import { bin, version } from '../package.json'
 
 export function createCli(options: Options): CAC {
@@ -18,7 +18,7 @@ export function createCli(options: Options): CAC {
   function runCommand(args: string[] = []): Promise<void> {
     return new Promise((resolve, reject) => {
       const anyproxyPath = path.join(
-        resolveSync('anyproxy', { basedir: options.cwd }),
+        resolvePkg.sync('anyproxy', { basedir: options.cwd }),
         '../bin/anyproxy',
       )
 

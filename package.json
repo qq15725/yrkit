@@ -25,7 +25,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "cli": "./bin/index.mjs"
+    "yrkit": "./bin/index.mjs"
   },
   "files": [
     "bin",

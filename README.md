@@ -18,8 +18,14 @@
   </a>
 </p>
 
-## Install
+## 📦 Install
 
 ```bash
 npm i -g yrkit
+```
+
+## Usage
+
+```bash
+yrkit --help
 ```

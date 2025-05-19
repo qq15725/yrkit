@@ -136,10 +136,15 @@ export function createCli(_options: Options): CAC {
 
   const cli = cac(Object.keys(bin)[0])
 
-  cli.command('start', '启动服务').action(async () => {
-    await showInfo()
-    await runCommand(args)
-  })
+  cli.command('start', '启动服务')
+    .option('-r, --rule [rule]', 'Rule file')
+    .action(async (options) => {
+      await showInfo()
+      await runCommand([
+        ...args,
+        options.r ? `-r ${options.rule}` : undefined,
+      ].filter(Boolean) as any)
+    })
 
   cli.command('xhs', '小红书工具').action(async () => {
     await showInfo()
@@ -147,6 +152,10 @@ export function createCli(_options: Options): CAC {
       ...args,
       `-r ${resolve('../rules/xhs.cjs')}`,
     ])
+  })
+
+  cli.command('').action(() => {
+    cli.outputHelp()
   })
 
   cli

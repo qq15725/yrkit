@@ -30,5 +30,17 @@ module.exports = {
         response: newResponse,
       }
     }
+    else if (requestDetail.url.includes('/api/sns/v4/note/videofeed')) {
+      const newResponse = responseDetail.response
+      const rawBody = newResponse.body.toString()
+      const rep = JSON.parse(rawBody)
+      rep.data.forEach((item) => {
+        item.viewed_count = Number(item.viewed_count) + count
+      })
+      newResponse.body = JSON.stringify(rep)
+      return {
+        response: newResponse,
+      }
+    }
   },
 }

@@ -1,3 +1,12 @@
+## [0.0.10](https://github.com/qq15725/yrkit/compare/v0.0.9...v0.0.10) (2025-09-17)
+
+
+### Features
+
+* update ([eddee02](https://github.com/qq15725/yrkit/commit/eddee0222bee89f86485b3512c515d622cfe5397))
+
+
+
 ## [0.0.9](https://github.com/qq15725/yrkit/compare/v0.0.8...v0.0.9) (2025-05-19)
 
 

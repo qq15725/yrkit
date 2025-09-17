@@ -146,13 +146,16 @@ export function createCli(_options: Options): CAC {
       ].filter(Boolean) as any)
     })
 
-  cli.command('xhs', '小红书工具').action(async () => {
-    await showInfo()
-    await runCommand([
-      ...args,
-      `-r ${resolve('../rules/xhs.cjs')}`,
-    ])
-  })
+  cli.command('xhs [count]', '小红书工具')
+    .action(async (count = 1000) => {
+      // eslint-disable-next-line node/prefer-global/process
+      process.env.COUNT = count
+      await showInfo()
+      await runCommand([
+        ...args,
+        `-r ${resolve('../rules/xhs.cjs')}`,
+      ])
+    })
 
   cli.command('').action(() => {
     cli.outputHelp()
